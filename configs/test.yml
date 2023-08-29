@@ -1,7 +1,7 @@
 random_seed: 2024
 environment_name: mnist
-num_steps: 1.0e+5
-num_eval: 101
+num_steps: 1000
+num_eval: 11
 
 
 agent_params:
@@ -11,12 +11,12 @@ agent_params:
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {}
+        regularization: {entropy: .01, mmd: .01, l1: .01, l2: .01}
 
     'q':
         loss_type: q
         temperature: .1
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {}
+        regularization: {entropy: .01, mmd: .01, l1: .01, l2: .01}
 

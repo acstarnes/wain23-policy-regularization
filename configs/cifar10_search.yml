@@ -1,10 +1,10 @@
 random_seed: 2024
 environment_name: cifar10
-num_steps: 500000
+num_steps: 1.0e+6
 num_eval: 101
 
 
-agents:
+agent_params:
 
     'pg':
         loss_type: pg

@@ -1,6 +1,6 @@
 random_seed: 2024
-environment_name: mnist
-num_steps: 1.0e+5
+environment_name: cifar10
+num_steps: 1.0e+6
 num_eval: 101
 
 
