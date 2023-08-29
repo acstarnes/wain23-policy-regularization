@@ -15,12 +15,11 @@ class MNISTEnv(gym.Env):
     def __init__(self, random_seed=0):
         super().__init__()
         self.name = 'mnist'
-        self.setup()
-        self.fix_random_seed(random_seed)
-
-    def fix_random_seed(self, random_seed):
-        """Fix random seed for reproducibility."""
         self.random_seed = random_seed
+        self.setup()
+
+    def fix_random_seed(self):
+        """Fix random seed for reproducibility."""
         self.seed(self.random_seed)
         np.random.seed(self.random_seed)
         tf.random.set_seed(self.random_seed)
@@ -59,12 +58,12 @@ class MNISTEnv(gym.Env):
 
     def compute_reward(self, state_index, action_index):
         """Compute the reward value for a given state and an action index."""
-        r = self.R[self.y_tr[state_index], action_index]
+        r = self.R[self.y_tr[state_index], action_index.flatten()]
         return r
 
-    def reset(self):
+    def reset(self, num=1):
         """Randomly sample a state."""
-        self.state_index = np.random.randint(self.num_states)
+        self.state_index = np.random.randint(self.num_states, size=num)
         self.state = self.x_tr[self.state_index]
         return self.state
 
@@ -82,12 +81,11 @@ class CIFAR10Env(gym.Env):
     def __init__(self, random_seed=0):
         super().__init__()
         self.name = 'cifar10'
-        self.setup()
-        self.fix_random_seed(random_seed)
-
-    def fix_random_seed(self, random_seed):
-        """Fix random seed for reproducibility."""
         self.random_seed = random_seed
+        self.setup()
+
+    def fix_random_seed(self):
+        """Fix random seed for reproducibility."""
         self.seed(self.random_seed)
         np.random.seed(self.random_seed)
         tf.random.set_seed(self.random_seed)
@@ -127,12 +125,12 @@ class CIFAR10Env(gym.Env):
 
     def compute_reward(self, state_index, action_index):
         """Compute the reward value for a given state and an action index."""
-        r = self.R[self.y_tr[state_index], action_index]
+        r = self.R[self.y_tr[state_index], action_index.flatten()]
         return r
 
-    def reset(self):
+    def reset(self, num=1):
         """Randomly sample a state."""
-        self.state_index = np.random.randint(self.num_states)
+        self.state_index = np.random.randint(self.num_states, size=num)
         self.state = self.x_tr[self.state_index]
         return self.state
 
