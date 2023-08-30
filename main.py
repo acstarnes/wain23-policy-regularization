@@ -25,7 +25,9 @@ class Experiment:
         """Initialize variables."""
         self.env = self.setup_environment()
         self.eval_steps = np.linspace(0, self.num_steps, self.num_eval, dtype=int)
-        self.logs = {'loss': defaultdict(list),
+        self.logs = {'exp_name': self.name,
+                     'steps': self.eval_steps,
+                     'loss': defaultdict(list),
                      'accuracy': defaultdict(list),
                      'entropy': defaultdict(list),
                      'histogram': defaultdict(list)}
