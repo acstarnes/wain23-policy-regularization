@@ -1,0 +1,85 @@
+random_seed: 2024
+environment_name: mnist
+num_steps: 1.0e+5
+num_eval: 101
+
+
+agent_params:
+
+    'q':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'q_ent_01':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .01}
+
+    'q_ent_02':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .02}
+
+    'q_ent_03':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .03}
+
+    'q_ent_04':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .04}
+
+    'q_ent_05':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .05}
+
+    'q_ent_06':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .06}
+
+    'q_ent_07':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .07}
+
+    'q_ent_08':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .08}
+
+    'q_ent_09':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .09}
+
+    'q_ent_10':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .10}
+

@@ -1,0 +1,85 @@
+random_seed: 2024
+environment_name: mnist
+num_steps: 1.0e+5
+num_eval: 101
+
+
+agent_params:
+
+    'q':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'q_mmd_005':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .005}
+
+    'q_mmd_010':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .010}
+
+    'q_mmd_015':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .015}
+
+    'q_mmd_020':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .020}
+
+    'q_mmd_025':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .025}
+
+    'q_mmd_030':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .030}
+
+    'q_mmd_035':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .035}
+
+    'q_mmd_040':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .040}
+
+    'q_mmd_045':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .045}
+
+    'q_mmd_050':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .050}
+

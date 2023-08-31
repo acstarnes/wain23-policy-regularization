@@ -1,0 +1,85 @@
+random_seed: 2024
+environment_name: mnist
+num_steps: 1.0e+5
+num_eval: 101
+
+
+agent_params:
+
+    'q':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'q_l2_001':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .001}
+
+    'q_l2_002':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .002}
+
+    'q_l2_003':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .003}
+
+    'q_l2_004':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .004}
+
+    'q_l2_005':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .005}
+
+    'q_l2_006':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .006}
+
+    'q_l2_007':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .007}
+
+    'q_l2_008':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .008}
+
+    'q_l2_009':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .009}
+
+    'q_l2_010':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .010}
+

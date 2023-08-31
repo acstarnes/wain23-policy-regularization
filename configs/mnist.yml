@@ -4,7 +4,7 @@ num_steps: 1000
 num_eval: 11
 
 
-agents:
+agent_params:
 
     'pg':
         loss_type: pg
