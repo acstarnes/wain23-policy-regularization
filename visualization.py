@@ -25,6 +25,7 @@ class Visualization:
 
     def plot(self, show=True):
         """Plot saved metrics."""
+        sns.set_palette('tab20c')
         self.plot_loss(show=show)
         self.plot_accuracy(show=show)
         self.plot_entropy(show=show)
@@ -83,6 +84,8 @@ class Visualization:
 if __name__ == '__main__':
 
     logs = 'test'
-    viz = Visualization(logs)
-    viz.plot(show=False)
+    for logs in os.listdir('./logs/'):
+        print(logs)
+        viz = Visualization(logs[:-4])
+        viz.plot(show=False)
 

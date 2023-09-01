@@ -3,7 +3,6 @@ environment_name: mnist
 num_steps: 1000
 num_eval: 11
 
-
 agent_params:
 
     'pg':

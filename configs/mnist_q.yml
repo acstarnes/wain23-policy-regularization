@@ -1,0 +1,42 @@
+random_seed: 2024
+environment_name: mnist
+num_steps: 1.0e+5
+num_eval: 101
+
+agent_params:
+
+    'q':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'q_mmd':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .005}
+
+    'q_ent':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .01}
+
+    'q_l1':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l1: .0001}
+
+    'q_l2':
+        loss_type: q
+        temperature: .1
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {l2: .01}
+
