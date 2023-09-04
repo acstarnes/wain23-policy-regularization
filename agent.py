@@ -88,9 +88,13 @@ class Agent:
         # mmd regularization
         if reg == 'mmd':
             prob_products = probs / self.env.num_classes
-            mmd_coefs = np.array([[tf.reduce_sum(kernel_coef * prob_prod)
-                                   for kernel_coef in self.kernel_coefs]
-                                   for prob_prod in prob_products])
+            ##mmd_coefs = np.array([[tf.reduce_sum(kernel_coef * prob_prod)
+                                   ##for kernel_coef in self.kernel_coefs]
+                                   ##for prob_prod in prob_products])
+            ##mmd_coefs = np.array([[tf.reduce_sum(kernel_coef.sum(axis=0) * prob_prod)
+                                   ##for kernel_coef in self.kernel_coefs]
+                                   ##for prob_prod in prob_products])
+            mmd_coefs = np.matmul(prob_products, self.kernel_coefs.transpose([1,2,0])).sum(axis=0)
             mmd_loss = tf.reduce_sum(mmd_coefs * probs)
             return mmd_loss
 
@@ -160,5 +164,7 @@ class Agent:
             return np.exp((-1.) * np.power(gamma,-2) * indicator(x,y))
 
         self.kernel_coefs = np.array([[[kernel(a,a_prime) - kernel(a,a_star)\
-            for a_prime in range(10)] for a_star in range(10)] for a in range(10)])
+                                        for a_prime in range(self.env.num_classes)]\
+                                        for a_star in range(self.env.num_classes)]\
+                                        for a in range(self.env.num_classes)])
 
