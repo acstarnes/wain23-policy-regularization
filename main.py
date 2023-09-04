@@ -40,6 +40,8 @@ class Experiment:
             return CIFAR10Env(self.random_seed)
         elif self.environment_name == 'cifar100':
             return CIFAR100Env(self.random_seed)
+        elif self.environment_name == 'spotify':
+            return SpotifyEnv(self.random_seed)
         else:
             raise NameError(f'Environment "{self.environment_name}" is not defined...')
 

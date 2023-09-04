@@ -1,0 +1,120 @@
+random_seed: 2024
+environment_name: spotify
+num_steps: 1.0e+5
+num_eval: 101
+
+
+agent_params:
+
+    'pg':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'pg_mmd_002':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .002}
+
+    'pg_mmd_004':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .004}
+
+    'pg_mmd_006':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .006}
+
+    'pg_mmd_008':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .008}
+
+    'pg_mmd_010':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .010}
+
+    'pg_mmd_012':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .012}
+
+    'pg_mmd_014':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .014}
+
+    'pg_mmd_016':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .016}
+
+    'pg_mmd_018':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .018}
+
+    'pg_mmd_020':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .020}
+
+    'pg_mmd_022':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .022}
+
+    'pg_mmd_024':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .024}
+
+    'pg_mmd_026':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .026}
+
+    'pg_mmd_028':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .028}
+
+    'pg_mmd_030':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .030}
+

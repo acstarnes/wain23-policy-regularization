@@ -6,6 +6,7 @@ leave it like that for the simplicity of future modifications.
 
 import gym
 import numpy as np
+import pandas as pd
 import tensorflow as tf
 
 
@@ -48,7 +49,7 @@ class MNISTEnv(gym.Env):
 
     def setup_action_space(self):
         """Setup action space."""
-        self.num_classes = np.unique(self.y_tr).size
+        self.num_classes = len(self.labels)
         self.action_space = gym.spaces.Discrete(self.num_classes)
 
     def setup_reward_space(self):
@@ -115,7 +116,7 @@ class CIFAR10Env(gym.Env):
 
     def setup_action_space(self):
         """Setup action space."""
-        self.num_classes = np.unique(self.y_tr).size
+        self.num_classes = len(self.labels)
         self.action_space = gym.spaces.Discrete(self.num_classes)
 
     def setup_reward_space(self):
@@ -181,7 +182,7 @@ class CIFAR100Env(gym.Env):
 
     def setup_action_space(self):
         """Setup action space."""
-        self.num_classes = np.unique(self.y_tr).size
+        self.num_classes = len(self.labels)
         self.action_space = gym.spaces.Discrete(self.num_classes)
 
     def setup_reward_space(self):
@@ -208,8 +209,104 @@ class CIFAR100Env(gym.Env):
         return self.state_index, reward, done, info
 
 
+class SpotifyEnv(gym.Env):
+    '''Set up a contextual bandit environment based on Spotify data.'''
+
+    def __init__(self, seed=0):
+        super().__init__()
+        self.name = 'spotify'
+        self.random_seed = seed
+        self.setup()
+
+    def fix_random_seed(self):
+        """Fix random seed for reproducibility."""
+        self.seed(self.random_seed)
+        np.random.seed(self.random_seed)
+        tf.random.set_seed(self.random_seed)
+
+    def setup(self):
+        """Setup the environment."""
+        self.load_data()
+        self.setup_state_space()
+        self.setup_action_space()
+        self.setup_reward_space()
+        # generate test set
+        np.random.seed(0)
+        self.x_ts = self.reset(num=10000)
+        self.y_ts = np.matmul(self.x_ts, self.R).argmax(axis=1)
+
+    def load_data(self):
+        """Load Spotify data."""
+        self.genres = self.load_spotify_data_train()
+        self.tracks = self.load_spotify_data_test()
+        self.labels = list(map(str, range(len(self.tracks))))
+
+    def load_spotify_data_train(self):
+        '''Compute average feature vector for each music genre.'''
+        self.info_train = pd.read_csv('./spotify/spotify_genres.csv', index_col=0)
+        genres = {}
+        for genre in self.info_train['genre']:
+            features = pd.read_csv(f'./spotify/data/{genre}.csv', index_col=0)
+            genres[genre] = dict(features.select_dtypes(include=np.number).mean())
+        genres = pd.DataFrame(genres).transpose().sort_index()
+        return genres
+
+    def load_spotify_data_test(self):
+        '''Load test tracks from each test data file.'''
+        self.info_test = pd.read_csv('./spotify/spotify_actions.csv', index_col=0)
+        tracks = []
+        for playlist in self.info_test['genre']:
+            tracks.append(pd.read_csv(f'./spotify/data/{playlist}.csv', index_col=0))
+        tracks = pd.concat(tracks, ignore_index=True)
+        return tracks
+
+    def setup_state_space(self):
+        """Setup state space."""
+        self.state_dim = len(self.genres)
+        self.observation_space =\
+            gym.spaces.Box(low=0., high=1., shape=(self.state_dim,), dtype=np.float32)
+
+    def setup_action_space(self):
+        """Setup action space."""
+        self.num_classes = len(self.labels)
+        self.action_space = gym.spaces.Discrete(self.num_classes)
+
+    def setup_reward_space(self):
+        """Compute reward matrix."""
+        genre_vals = np.array(self.genres.values.tolist())
+        track_vals = np.array(self.tracks.drop('id', axis=1).values.tolist())
+        self.R = np.matmul(genre_vals - genre_vals.mean(axis=0),\
+                           (track_vals - track_vals.mean(axis=0)).T)
+        self.neg, self.pos = -.1, .1
+
+    def compute_reward(self, state, action):
+        """Compute the reward value for a given state and an action index."""
+        r = np.matmul(state, self.R)[range(len(action)), action]
+        r = (1*(r > self.pos) - 1*(r < self.neg)).astype(float)
+        return r
+
+    def reset(self, num=1):
+        """Randomly sample a state."""
+        sparsity = .05 + .2 * np.random.rand(num)
+        num_prefs = (sparsity * self.state_dim).astype(int)
+        inds = [np.random.choice(np.arange(self.state_dim), replace=False, size=n) for n in num_prefs]
+        self.state = np.zeros((num,self.state_dim))
+        for i in range(num):
+            self.state[i][inds[i]] = 1
+        return self.state
+
+    def step(self, action):
+        """Take an action for an observed state and compute the reward."""
+        reward = self.compute_reward(self.state, action)
+        done = True
+        info = {}
+        return self.state, reward, done, info
+
+
 if __name__ == '__main__':
 
-    env = MNISTEnv()
-    env = CIFAR10Env()
-    env = CIFAR100Env()
+    ##env = MNISTEnv()
+    ##env = CIFAR10Env()
+    ##env = CIFAR100Env()
+    env = SpotifyEnv()
+
