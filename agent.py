@@ -12,7 +12,6 @@ class Agent:
         self.name = name
         self.__dict__.update(params)
         self.random_seed = random_seed
-        self.get_kernel_coefs()
 
         # set up replay buffer and loss function
         if self.loss_type == 'q':
@@ -28,6 +27,7 @@ class Agent:
         self.logs = logs
         eval_steps = deque(steps[1:])
         self.build_model()
+        self.get_kernel_coefs()
 
         # train the model
         self.env.fix_random_seed()
