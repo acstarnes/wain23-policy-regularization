@@ -13,73 +13,108 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {}
 
-    'pg_mmd_005':
+    'pg_ent_01':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .005}
+        regularization: {entropy: .01}
 
-    'pg_mmd_010':
+    'pg_ent_02':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .010}
+        regularization: {entropy: .02}
 
-    'pg_mmd_015':
+    'pg_ent_03':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .015}
+        regularization: {entropy: .03}
 
-    'pg_mmd_020':
+    'pg_ent_04':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .020}
+        regularization: {entropy: .04}
 
-    'pg_mmd_025':
+    'pg_ent_05':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .025}
+        regularization: {entropy: .05}
 
-    'pg_mmd_030':
+    'pg_ent_06':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .030}
+        regularization: {entropy: .06}
 
-    'pg_mmd_035':
+    'pg_ent_07':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .035}
+        regularization: {entropy: .07}
 
-    'pg_mmd_040':
+    'pg_ent_08':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .040}
+        regularization: {entropy: .08}
 
-    'pg_mmd_045':
+    'pg_ent_09':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .045}
+        regularization: {entropy: .09}
 
-    'pg_mmd_050':
+    'pg_ent_10':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .050}
+        regularization: {entropy: .10}
+
+    'pg_ent_11':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .11}
+
+    'pg_ent_12':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .12}
+
+    'pg_ent_13':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .13}
+
+    'pg_ent_14':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .14}
+
+    'pg_ent_15':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {entropy: .15}
 
