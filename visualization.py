@@ -84,8 +84,11 @@ class Visualization:
 if __name__ == '__main__':
 
     logs = 'test'
-    for logs in os.listdir('./logs/'):
-        print(logs)
-        viz = Visualization(logs[:-4])
-        viz.plot(show=False)
+    viz = Visualization(logs)
+    viz.plot(show=False)
+
+    ##for logs in os.listdir('./logs/'):
+        ##print(logs)
+        ##viz = Visualization(logs[:-4])
+        ##viz.plot(show=False)
 
