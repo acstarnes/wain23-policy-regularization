@@ -30,7 +30,8 @@ class Experiment:
                      'loss': defaultdict(list),
                      'accuracy': defaultdict(list),
                      'entropy': defaultdict(list),
-                     'histogram': defaultdict(list)}
+                     'histogram': defaultdict(list),
+                     'reward': defaultdict(list)}
 
     def setup_environment(self):
         """Set up contextual bandit environment."""
