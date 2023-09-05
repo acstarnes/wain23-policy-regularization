@@ -29,6 +29,7 @@ class Visualization:
         self.plot_loss(show=show)
         self.plot_accuracy(show=show)
         self.plot_entropy(show=show)
+        self.plot_reward(show=show)
         self.plot_histograms(show=show)
 
     def plot_loss(self, show=True):
@@ -62,6 +63,17 @@ class Visualization:
         ax.legend(ncol=1, loc='upper right', bbox_to_anchor=(1.3, 1.))
         ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/entropy.png', dpi=300, bbox_inches='tight')
+        plt.show() if show else plt.close()
+
+    def plot_reward(self, show=True):
+        """Plot the reward values."""
+        fig, ax = plt.subplots(figsize=(8,5))
+        for agent, ent in self.logs['reward'].items():
+            ax.plot(self.logs['steps'], ent, linewidth=3, label=agent)
+        ax.set_title('Policy reward')
+        ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1.05, 1.))
+        ##plt.tight_layout()
+        plt.savefig(f'{self.savedir}/reward.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
 
     def plot_histograms(self, sort=True, show=True):
