@@ -150,6 +150,10 @@ class Agent:
         hist = np.histogram(actions, bins=np.arange(self.env.num_classes+1), density=True)[0]
         self.logs['histogram'][self.name].append(hist)
 
+        # compute model reward
+        reward = self.env.evaluate_predictions(actions.numpy())
+        self.logs['reward'][self.name].append(reward)
+
     def get_kernel_coefs(self):
         """No idea what this is, treating as a blackbox for now."""
         gamma = 1.414
