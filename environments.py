@@ -75,6 +75,11 @@ class MNISTEnv(gym.Env):
         info = {}
         return self.state_index, reward, done, info
 
+    def evaluate_predictions(self, actions):
+        """Compute the average reward on the test set."""
+        r = self.compute_reward(range(len(self.y_ts)), actions)
+        return r.mean()
+
 
 class CIFAR10Env(gym.Env):
     """Set up CIFAR10 classification task as a contextual bandit environment."""
@@ -142,6 +147,11 @@ class CIFAR10Env(gym.Env):
         info = {}
         return self.state_index, reward, done, info
 
+    def evaluate_predictions(self, actions):
+        """Compute the average reward on the test set."""
+        r = self.compute_reward(range(len(self.y_ts)), actions)
+        return r.mean()
+
 
 class CIFAR100Env(gym.Env):
     """Set up CIFAR100 classification task as a contextual bandit environment."""
@@ -207,6 +217,11 @@ class CIFAR100Env(gym.Env):
         done = True
         info = {}
         return self.state_index, reward, done, info
+
+    def evaluate_predictions(self, actions):
+        """Compute the average reward on the test set."""
+        r = self.compute_reward(range(len(self.y_ts)), actions)
+        return r.mean()
 
 
 class SpotifyEnv(gym.Env):
@@ -301,6 +316,11 @@ class SpotifyEnv(gym.Env):
         done = True
         info = {}
         return self.state, reward, done, info
+
+    def evaluate_predictions(self, actions):
+        """Compute the average reward on the test set."""
+        r = self.compute_reward(self.x_ts, actions)
+        return r.mean()
 
 
 if __name__ == '__main__':
