@@ -121,8 +121,10 @@ class Agent:
         # construct the model
         self.model = tf.keras.Sequential(name=self.name)
         self.model.add(tf.keras.layers.Flatten())
-        self.model.add(tf.keras.layers.Dense(32, activation='relu'))
-        self.model.add(tf.keras.layers.Dense(32, activation='relu'))
+        ##self.model.add(tf.keras.layers.Dense(32, activation='relu'))
+        ##self.model.add(tf.keras.layers.Dense(32, activation='relu'))
+        self.model.add(tf.keras.layers.Dense(256, activation='relu'))
+        self.model.add(tf.keras.layers.Dense(256, activation='relu'))
         self.model.add(tf.keras.layers.Dense(self.env.num_classes, activation='linear'))
 
         # compile and evaluate the model
