@@ -77,7 +77,7 @@ class MNISTEnv(gym.Env):
 
     def evaluate_predictions(self, actions):
         """Compute the average reward on the test set."""
-        r = self.compute_reward(range(len(self.y_ts)), actions)
+        r = self.R[self.y_ts, actions.flatten()]
         return r.mean()
 
 
@@ -149,7 +149,7 @@ class CIFAR10Env(gym.Env):
 
     def evaluate_predictions(self, actions):
         """Compute the average reward on the test set."""
-        r = self.compute_reward(range(len(self.y_ts)), actions)
+        r = self.R[self.y_ts, actions.flatten()]
         return r.mean()
 
 
@@ -220,7 +220,7 @@ class CIFAR100Env(gym.Env):
 
     def evaluate_predictions(self, actions):
         """Compute the average reward on the test set."""
-        r = self.compute_reward(range(len(self.y_ts)), actions)
+        r = self.R[self.y_ts, actions.flatten()]
         return r.mean()
 
 
@@ -296,7 +296,7 @@ class SpotifyEnv(gym.Env):
 
     def compute_reward(self, state, action):
         """Compute the reward value for a given state and an action index."""
-        r = np.matmul(state, self.R)[range(len(action)), action]
+        r = np.matmul(state, self.R)[range(len(action)), action.flatten()]
         r = (1*(r > self.pos) - 1*(r < self.neg)).astype(float)
         return r
 
@@ -306,8 +306,8 @@ class SpotifyEnv(gym.Env):
         num_prefs = (sparsity * self.state_dim).astype(int)
         inds = [np.random.choice(np.arange(self.state_dim), replace=False, size=n) for n in num_prefs]
         self.state = np.zeros((num,self.state_dim))
-        for i in range(num):
-            self.state[i][inds[i]] = 1
+        for i, ind in enumerate(inds):
+            self.state[i][ind] = 1.
         return self.state
 
     def step(self, action):
@@ -319,7 +319,7 @@ class SpotifyEnv(gym.Env):
 
     def evaluate_predictions(self, actions):
         """Compute the average reward on the test set."""
-        r = self.compute_reward(self.x_ts, actions)
+        r = self.compute_reward(self.x_ts, actions.flatten())
         return r.mean()
 
 
