@@ -52,7 +52,7 @@ class Experiment:
         for name, params in self.agent_params.items():
             agent = Agent(name, params, self.random_seed)
             agent.train(self.env, self.logs, self.eval_steps.copy())
-            self.agents[agent] = agent
+            self.agents[agent.name] = agent
         self.save_logs()
 
     def save_logs(self):
