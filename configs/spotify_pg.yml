@@ -1,5 +1,5 @@
 random_seed: 2024
-environment_name: mnist
+environment_name: spotify
 num_steps: 1.0e+5
 num_eval: 101
 
@@ -17,26 +17,26 @@ agent_params:
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .03}
+        regularization: {mmd: .006}
 
     'pg_ent':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {entropy: .15}
+        regularization: {entropy: .04}
 
     'pg_l1':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l1: .00003}
+        regularization: {l1: .00012}
 
     'pg_l2':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .003}
+        regularization: {l2: .006}
 
