@@ -38,7 +38,7 @@ class Visualization:
         for agent, loss in self.logs['loss'].items():
             ax.plot(self.logs['steps'], loss, linewidth=3, label=agent)
         ax.set_title('Categorical crossentropy loss')
-        ax.legend(ncol=1, loc='upper right', bbox_to_anchor=(1.3, 1.))
+        ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/loss.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
@@ -49,7 +49,7 @@ class Visualization:
         for agent, acc in self.logs['accuracy'].items():
             ax.plot(self.logs['steps'], acc, linewidth=3, label=agent)
         ax.set_title('Accuracy')
-        ax.legend(ncol=1, loc='upper right', bbox_to_anchor=(1.3, 1.))
+        ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/accuracy.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
@@ -60,7 +60,7 @@ class Visualization:
         for agent, ent in self.logs['entropy'].items():
             ax.plot(self.logs['steps'], ent, linewidth=3, label=agent)
         ax.set_title('Policy entropy')
-        ax.legend(ncol=1, loc='upper right', bbox_to_anchor=(1.3, 1.))
+        ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/entropy.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
@@ -71,7 +71,7 @@ class Visualization:
         for agent, ent in self.logs['reward'].items():
             ax.plot(self.logs['steps'], ent, linewidth=3, label=agent)
         ax.set_title('Policy reward')
-        ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1.05, 1.))
+        ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/reward.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
