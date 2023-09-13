@@ -25,7 +25,7 @@ class Visualization:
 
     def plot(self, show=True):
         """Plot saved metrics."""
-        sns.set_palette('tab20c')
+        sns.set_palette('muted')
         self.plot_loss(show=show)
         self.plot_accuracy(show=show)
         self.plot_entropy(show=show)

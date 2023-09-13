@@ -248,7 +248,8 @@ class SpotifyEnv(gym.Env):
         # generate test set
         np.random.seed(0)
         self.x_ts = self.reset(num=10000)
-        self.y_ts = np.matmul(self.x_ts, self.R).argmax(axis=1)
+        ##self.y_ts = np.matmul(self.x_ts, self.R).argmax(axis=1)
+        self.y_ts = np.matmul(self.x_ts, self.R)
 
     def load_data(self):
         """Load Spotify data."""
@@ -323,10 +324,11 @@ class SpotifyEnv(gym.Env):
         return r.mean()
 
 
+
 if __name__ == '__main__':
 
-    ##env = MNISTEnv()
-    ##env = CIFAR10Env()
-    ##env = CIFAR100Env()
+    env = MNISTEnv()
+    env = CIFAR10Env()
+    env = CIFAR100Env()
     env = SpotifyEnv()
 

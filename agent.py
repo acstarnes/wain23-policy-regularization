@@ -46,7 +46,7 @@ class Agent:
                 if self.loss_type == 'pg':
                     # compute pg-loss
                     probs = tf.nn.softmax(logits, axis=1)
-                    logprobs = tf.math.log(tf.gather_nd(probs, actions, batch_dims=1))
+                    logprobs = tf.math.log(tf.gather_nd(probs + 1e-8, actions, batch_dims=1))
                     loss = -tf.reduce_mean(rewards * logprobs)
 
                 elif self.loss_type == 'q':
@@ -88,12 +88,6 @@ class Agent:
         # mmd regularization
         if reg == 'mmd':
             prob_products = probs / self.env.num_classes
-            ##mmd_coefs = np.array([[tf.reduce_sum(kernel_coef * prob_prod)
-                                   ##for kernel_coef in self.kernel_coefs]
-                                   ##for prob_prod in prob_products])
-            ##mmd_coefs = np.array([[tf.reduce_sum(kernel_coef.sum(axis=0) * prob_prod)
-                                   ##for kernel_coef in self.kernel_coefs]
-                                   ##for prob_prod in prob_products])
             mmd_coefs = np.matmul(prob_products, self.kernel_coefs.transpose([1,2,0])).sum(axis=0)
             mmd_loss = tf.reduce_sum(mmd_coefs * probs)
             return mmd_loss
@@ -124,15 +118,17 @@ class Agent:
         self.model.add(tf.keras.layers.Dense(32, activation='relu'))
         self.model.add(tf.keras.layers.Dense(32, activation='relu'))
         self.model.add(tf.keras.layers.Dense(self.env.num_classes, activation=None))
-        ##self.model.add(tf.keras.layers.Dense(256, activation='relu'))
-        ##self.model.add(tf.keras.layers.Dense(256, activation='relu'))
-        ##self.model.add(tf.keras.layers.Dense(self.env.num_classes, activation=None))
 
         # compile and evaluate the model
         optimizer = getattr(tf.keras.optimizers, self.optimizer['name'])(**self.optimizer)
-        self.model.compile(optimizer=optimizer,
-                           loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-                           metrics=tf.keras.metrics.SparseCategoricalAccuracy())
+        if self.env.name == 'spotify':
+            self.model.compile(optimizer=optimizer,
+                               loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True),
+                               metrics=tf.keras.metrics.TopKCategoricalAccuracy(k=5))
+        else:
+            self.model.compile(optimizer=optimizer,
+                               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                               metrics=tf.keras.metrics.SparseCategoricalAccuracy())
         self.evaluate_model()
 
     def evaluate_model(self):
