@@ -1,8 +1,7 @@
 random_seed: 2024
-environment_name: spotify
-num_steps: 1.0e+5
+environment_name: cifar10
+num_steps: 1.0e+6
 num_eval: 101
-
 
 agent_params:
 
@@ -13,108 +12,108 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {}
 
-    'pg_l2_001':
+    'pg_tv_01':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .001}
+        regularization: {tv: .01}
 
-    'pg_l2_002':
+    'pg_tv_02':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .002}
+        regularization: {tv: .02}
 
-    'pg_l2_003':
+    'pg_tv_03':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .003}
+        regularization: {tv: .03}
 
-    'pg_l2_004':
+    'pg_tv_04':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .004}
+        regularization: {tv: .04}
 
-    'pg_l2_005':
+    'pg_tv_05':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .005}
+        regularization: {tv: .05}
 
-    'pg_l2_006':
+    'pg_tv_06':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .006}
+        regularization: {tv: .06}
 
-    'pg_l2_007':
+    'pg_tv_07':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .007}
+        regularization: {tv: .07}
 
-    'pg_l2_008':
+    'pg_tv_08':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .008}
+        regularization: {tv: .08}
 
-    'pg_l2_009':
+    'pg_tv_09':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .009}
+        regularization: {tv: .09}
 
-    'pg_l2_010':
+    'pg_tv_10':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .010}
+        regularization: {tv: .10}
 
-    'pg_l2_011':
+    'pg_tv_11':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .011}
+        regularization: {tv: .11}
 
-    'pg_l2_012':
+    'pg_tv_12':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .012}
+        regularization: {tv: .12}
 
-    'pg_l2_013':
+    'pg_tv_13':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .013}
+        regularization: {tv: .13}
 
-    'pg_l2_014':
+    'pg_tv_14':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .014}
+        regularization: {tv: .14}
 
-    'pg_l2_015':
+    'pg_tv_15':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .015}
+        regularization: {tv: .15}
 

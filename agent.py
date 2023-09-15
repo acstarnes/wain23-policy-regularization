@@ -83,12 +83,12 @@ class Agent:
         n = self.env.num_classes
 
         # entropy regularization
-        if reg == 'entropy':
-            entropy = tf.reduce_mean(tf.reduce_sum(-probs * tf.math.log(probs + 1e-8), axis=1))
-            return -entropy
+        if reg == 'ent':
+            ent = tf.reduce_mean(tf.reduce_sum(-probs * tf.math.log(probs + 1e-8), axis=1))
+            return -ent
 
         # jensen-shannon regularization
-        if reg == 'jensen-shannon':
+        if reg == 'js':
             mid = (probs + 1/n) / 2
             js = tf.reduce_mean(\
                 tf.reduce_sum(-probs * tf.math.log(probs/mid + 1e-8), axis=1)\
@@ -98,17 +98,17 @@ class Agent:
         # mmd regularization
         if reg == 'mmd':
             mmd_coefs = np.matmul(probs/n, self.kernel_coefs.transpose([1,2,0])).sum(axis=0)
-            mmd_loss = tf.reduce_sum(mmd_coefs * probs)
+            mmd_loss = tf.reduce_mean(tf.reduce_sum(mmd_coefs * probs, axis=1))
             return mmd_loss
 
         # hellinger regularization
-        if reg == 'hellinger':
-            h = tf.reduce_mean(tf.reduce_sum(tf.square(tf.sqrt(probs) - np.sqrt(1/n)), axis=1))
-            return h
+        if reg == 'hl':
+            hl = tf.reduce_mean(tf.reduce_sum(tf.square(tf.sqrt(probs) - np.sqrt(1/n)), axis=1))
+            return hl
 
         # total variation regularization
         if reg == 'tv':
-            tv = tf.reduce_mean(tf.reduce_max(probs - 1/n, axis=1))
+            tv = tf.reduce_mean(tf.reduce_max(tf.abs(probs - 1/n), axis=1))
             return tv
 
         # l1 regularization

@@ -10,12 +10,12 @@ agent_params:
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {entropy: .01, mmd: .01, l1: .01, l2: .01}
+        regularization: {ent: .01, mmd: .01, js:.01, hl: .01, tv: .01, l1: .01, l2: .01}
 
     'q':
         loss_type: q
         temperature: .1
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {entropy: .01, mmd: .01, l1: .01, l2: .01}
+        regularization: {ent: .01, mmd: .01, js:.01, hl: .01, tv: .01, l1: .01, l2: .01}
 

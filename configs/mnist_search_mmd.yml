@@ -3,7 +3,6 @@ environment_name: mnist
 num_steps: 1.0e+5
 num_eval: 101
 
-
 agent_params:
 
     'pg':
@@ -13,108 +12,108 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {}
 
-    'pg_mmd_002':
+    'pg_mmd_01':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .002}
+        regularization: {mmd: .01}
 
-    'pg_mmd_004':
+    'pg_mmd_02':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .004}
+        regularization: {mmd: .02}
 
-    'pg_mmd_006':
+    'pg_mmd_03':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .006}
+        regularization: {mmd: .03}
 
-    'pg_mmd_008':
+    'pg_mmd_04':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .008}
+        regularization: {mmd: .04}
 
-    'pg_mmd_010':
+    'pg_mmd_05':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .010}
+        regularization: {mmd: .05}
 
-    'pg_mmd_012':
+    'pg_mmd_06':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .012}
+        regularization: {mmd: .06}
 
-    'pg_mmd_014':
+    'pg_mmd_07':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .014}
+        regularization: {mmd: .07}
 
-    'pg_mmd_016':
+    'pg_mmd_08':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .016}
+        regularization: {mmd: .08}
 
-    'pg_mmd_018':
+    'pg_mmd_09':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .018}
+        regularization: {mmd: .09}
 
-    'pg_mmd_020':
+    'pg_mmd_10':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .020}
+        regularization: {mmd: .10}
 
-    'pg_mmd_022':
+    'pg_mmd_11':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .022}
+        regularization: {mmd: .11}
 
-    'pg_mmd_024':
+    'pg_mmd_12':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .024}
+        regularization: {mmd: .12}
 
-    'pg_mmd_026':
+    'pg_mmd_13':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .026}
+        regularization: {mmd: .13}
 
-    'pg_mmd_028':
+    'pg_mmd_14':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .028}
+        regularization: {mmd: .14}
 
-    'pg_mmd_030':
+    'pg_mmd_15':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .030}
+        regularization: {mmd: .15}
 

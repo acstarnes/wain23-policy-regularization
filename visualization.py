@@ -95,7 +95,7 @@ class Visualization:
 
 if __name__ == '__main__':
 
-    logs = 'test'
+    logs = 'mnist'
     viz = Visualization(logs)
     viz.plot(show=False)
 

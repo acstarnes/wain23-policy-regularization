@@ -12,31 +12,38 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {}
 
-    'pg_mmd':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .01}
-
     'pg_ent':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {entropy: .05}
+        regularization: {ent: .1}
 
-    'pg_l1':
+    'pg_mmd':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l1: .00005}
+        regularization: {mmd: .1}
 
-    'pg_l2':
+    'pg_js':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {l2: .003}
+        regularization: {js: .1}
+
+    'pg_hl':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .1}
+
+    'pg_tv':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {tv: .1}
 
