@@ -92,6 +92,11 @@ class Agent:
             mmd_loss = tf.reduce_sum(mmd_coefs * probs)
             return mmd_loss
 
+        # hellinger regularization
+        if reg == 'hellinger':
+            h = tf.reduce_sum(tf.math.square(tf.math.sqrt(probs) - np.sqrt(1/self.env.num_classes)))
+            return h
+
         # l1 regularization
         if reg == 'l1':
             l1 = tf.reduce_sum([tf.norm(weight, ord=1)
@@ -104,8 +109,7 @@ class Agent:
                                 for weight in self.model.trainable_weights[::2]])
             return l2
 
-        if reg not in ['entropy', 'mmd', 'l1', 'l2']:
-            raise NotImplementedError(f'Regularization "{reg}" is not defined...')
+        raise NotImplementedError(f'Regularization "{reg}" is not defined...')
 
     def build_model(self):
         """Set up feed-forward neural network for a given agent."""
