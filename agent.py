@@ -131,7 +131,7 @@ class Agent:
                                metrics=tf.keras.metrics.SparseCategoricalAccuracy())
         self.evaluate_model()
 
-    def evaluate_model(self):
+    def evaluate_model(self, stochastic=False):
         """Evaluate the model and record metrics."""
         # compute model loss and accuracy
         loss, acc = self.model.evaluate(self.env.x_ts, self.env.y_ts, verbose=0)
@@ -150,8 +150,13 @@ class Agent:
         self.logs['histogram'][self.name].append(hist)
 
         # compute model reward
-        reward = self.env.evaluate_predictions(actions.numpy())
-        self.logs['reward'][self.name].append(reward)
+        if stochastic:
+            reward = self.env.evaluate_predictions(actions.numpy())
+            self.logs['reward'][self.name].append(reward)
+        else:
+            actions = logits.numpy().argmax(axis=1)
+            reward = self.env.evaluate_predictions(actions)
+            self.logs['reward'][self.name].append(reward)
 
     def get_kernel_coefs(self):
         """No idea what this is, treating as a blackbox for now."""
