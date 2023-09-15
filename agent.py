@@ -80,22 +80,28 @@ class Agent:
 
     def compute_regularization(self, reg, probs):
         """Compute a given regularization term for the model."""
+        n = self.env.num_classes
+
         # entropy regularization
         if reg == 'entropy':
-            entropy = tf.reduce_mean(tf.reduce_sum(-probs * tf.math.log(probs + 1e-8), axis=1))
+            entropy = tf.reduce_mean(tf.reduce_sum(-probs * tf.log(probs + 1e-8), axis=1))
             return -entropy
 
         # mmd regularization
         if reg == 'mmd':
-            prob_products = probs / self.env.num_classes
-            mmd_coefs = np.matmul(prob_products, self.kernel_coefs.transpose([1,2,0])).sum(axis=0)
+            mmd_coefs = np.matmul(probs/n, self.kernel_coefs.transpose([1,2,0])).sum(axis=0)
             mmd_loss = tf.reduce_sum(mmd_coefs * probs)
             return mmd_loss
 
         # hellinger regularization
         if reg == 'hellinger':
-            h = tf.reduce_sum(tf.math.square(tf.math.sqrt(probs) - np.sqrt(1/self.env.num_classes)))
+            h = tf.reduce_mean(tf.reduce_sum(tf.square(tf.sqrt(probs) - np.sqrt(1/n)), axis=1))
             return h
+
+        # total variation regularization
+        if reg == 'tv':
+            tv = tf.reduce_mean(tf.reduce_max(probs - 1/n, axis=1))
+            return tv
 
         # l1 regularization
         if reg == 'l1':
