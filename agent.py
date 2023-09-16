@@ -89,7 +89,7 @@ class Agent:
 
         # jensen-shannon regularization
         if reg == 'js':
-            mid = (probs + 1/n) / 2 + 1e-8
+            mid = (probs + 1/n) / 2
             js = tf.reduce_mean(\
                 tf.reduce_sum(-probs * tf.math.log(probs/mid + 1e-8), axis=1)\
                 + tf.reduce_sum(-1/n * tf.math.log((1/n)/mid), axis=1))
@@ -103,7 +103,8 @@ class Agent:
 
         # hellinger regularization
         if reg == 'hl':
-            hl = tf.reduce_mean(tf.reduce_sum(tf.square(tf.sqrt(probs) - np.sqrt(1/n)), axis=1))
+            hl = tf.reduce_mean(\
+                tf.reduce_sum(tf.square(tf.sqrt(probs + 1e-8) - np.sqrt(1/n)), axis=1))
             return hl
 
         # total variation regularization
