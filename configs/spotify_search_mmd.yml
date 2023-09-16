@@ -17,103 +17,68 @@ agent_params:
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .01}
+        regularization: {mmd: .1}
 
     'pg_mmd_02':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .02}
+        regularization: {mmd: .2}
 
     'pg_mmd_03':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .03}
+        regularization: {mmd: .3}
 
     'pg_mmd_04':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .04}
+        regularization: {mmd: .4}
 
     'pg_mmd_05':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .05}
+        regularization: {mmd: .5}
 
     'pg_mmd_06':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .06}
+        regularization: {mmd: .6}
 
     'pg_mmd_07':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .07}
+        regularization: {mmd: .7}
 
     'pg_mmd_08':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .08}
+        regularization: {mmd: .8}
 
     'pg_mmd_09':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .09}
+        regularization: {mmd: .9}
 
     'pg_mmd_10':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .10}
-
-    'pg_mmd_11':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .11}
-
-    'pg_mmd_12':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .12}
-
-    'pg_mmd_13':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .13}
-
-    'pg_mmd_14':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .14}
-
-    'pg_mmd_15':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .15}
+        regularization: {mmd: 1.}
 

@@ -89,7 +89,7 @@ class Agent:
 
         # jensen-shannon regularization
         if reg == 'js':
-            mid = (probs + 1/n) / 2
+            mid = (probs + 1/n) / 2 + 1e-8
             js = tf.reduce_mean(\
                 tf.reduce_sum(-probs * tf.math.log(probs/mid + 1e-8), axis=1)\
                 + tf.reduce_sum(-1/n * tf.math.log((1/n)/mid), axis=1))

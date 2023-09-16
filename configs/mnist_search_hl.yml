@@ -12,68 +12,12 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {}
 
-    'pg_hl_01':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .01}
-
-    'pg_hl_02':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .02}
-
-    'pg_hl_03':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .03}
-
-    'pg_hl_04':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .04}
-
     'pg_hl_05':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {hl: .05}
-
-    'pg_hl_06':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .06}
-
-    'pg_hl_07':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .07}
-
-    'pg_hl_08':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .08}
-
-    'pg_hl_09':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .09}
 
     'pg_hl_10':
         loss_type: pg
@@ -82,38 +26,59 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {hl: .10}
 
-    'pg_hl_11':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .11}
-
-    'pg_hl_12':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .12}
-
-    'pg_hl_13':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .13}
-
-    'pg_hl_14':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {hl: .14}
-
     'pg_hl_15':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {hl: .15}
+
+    'pg_hl_20':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .20}
+
+    'pg_hl_25':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .25}
+
+    'pg_hl_30':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .30}
+
+    'pg_hl_35':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .35}
+
+    'pg_hl_40':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .40}
+
+    'pg_hl_45':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .45}
+
+    'pg_hl_50':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .50}
 

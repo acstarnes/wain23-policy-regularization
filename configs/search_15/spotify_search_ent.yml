@@ -12,12 +12,68 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {}
 
+    'pg_ent_01':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .01}
+
+    'pg_ent_02':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .02}
+
+    'pg_ent_03':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .03}
+
+    'pg_ent_04':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .04}
+
     'pg_ent_05':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {ent: .05}
+
+    'pg_ent_06':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .06}
+
+    'pg_ent_07':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .07}
+
+    'pg_ent_08':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .08}
+
+    'pg_ent_09':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .09}
 
     'pg_ent_10':
         loss_type: pg
@@ -26,59 +82,38 @@ agent_params:
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {ent: .10}
 
+    'pg_ent_11':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .11}
+
+    'pg_ent_12':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .12}
+
+    'pg_ent_13':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .13}
+
+    'pg_ent_14':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .14}
+
     'pg_ent_15':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
         regularization: {ent: .15}
-
-    'pg_ent_20':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .20}
-
-    'pg_ent_25':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .25}
-
-    'pg_ent_30':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .30}
-
-    'pg_ent_35':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .35}
-
-    'pg_ent_40':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .40}
-
-    'pg_ent_45':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .45}
-
-    'pg_ent_50':
-        loss_type: pg
-        temperature: 1.
-        batch_size: 100
-        optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .50}
 
