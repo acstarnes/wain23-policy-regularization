@@ -17,14 +17,14 @@ agent_params:
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {ent: .1}
+        regularization: {ent: .08}
 
     'pg_mmd':
         loss_type: pg
         temperature: 1.
         batch_size: 100
         optimizer: {name: Adam, learning_rate: 1.0e-3}
-        regularization: {mmd: .1}
+        regularization: {mmd: .8}
 
     'pg_js':
         loss_type: pg

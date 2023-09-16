@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set_theme(style='darkgrid', palette='tab20c', font='monospace', font_scale=1.)
+sns.set_theme(style='darkgrid', palette='muted', font='monospace', font_scale=1.)
 
 
 class Visualization:
@@ -25,9 +25,6 @@ class Visualization:
 
     def plot(self, show=True):
         """Plot saved metrics."""
-        ##sns.set_palette('muted')
-        sns.set_palette('tab20c')
-        self.plot_loss(show=show)
         self.plot_accuracy(show=show)
         self.plot_entropy(show=show)
         self.plot_reward(show=show)
@@ -40,7 +37,6 @@ class Visualization:
             ax.plot(self.logs['steps'], loss, linewidth=3, label=agent)
         ax.set_title('Categorical crossentropy loss')
         ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
-        ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/loss.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
 
@@ -51,7 +47,6 @@ class Visualization:
             ax.plot(self.logs['steps'], acc, linewidth=3, label=agent)
         ax.set_title('Accuracy')
         ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
-        ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/accuracy.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
 
@@ -62,7 +57,6 @@ class Visualization:
             ax.plot(self.logs['steps'], ent, linewidth=3, label=agent)
         ax.set_title('Policy entropy')
         ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
-        ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/entropy.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
 
@@ -73,7 +67,6 @@ class Visualization:
             ax.plot(self.logs['steps'], ent, linewidth=3, label=agent)
         ax.set_title('Policy reward')
         ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
-        ##plt.tight_layout()
         plt.savefig(f'{self.savedir}/reward.png', dpi=300, bbox_inches='tight')
         plt.show() if show else plt.close()
 
@@ -96,12 +89,7 @@ class Visualization:
 
 if __name__ == '__main__':
 
-    ##logs = 'mnist'
-    ##viz = Visualization(logs)
-    ##viz.plot(show=False)
-
-    for logs in os.listdir('./logs/'):
-        print(logs)
-        viz = Visualization(logs[:-4])
-        viz.plot(show=False)
+    logs = 'mnist'
+    viz = Visualization(logs)
+    viz.plot(show=False)
 
