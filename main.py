@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
     # parse the inputs
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', default='test',
+    parser.add_argument('-c', '--config', default='mnist',
                         help='Name of the config file in "./configs/"')
     args = parser.parse_args()
 
