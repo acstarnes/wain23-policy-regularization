@@ -11,8 +11,4 @@ Source code for the numerical experiments presented in the paper "Increasing Ent
 ### Results
 ![results](https://github.com/acstarnes/wain23-policy-regularization/assets/38059493/a63a7ffc-a64b-409e-bd00-596122c40be6)
 ![histograms](https://github.com/acstarnes/wain23-policy-regularization/assets/38059493/5c6e80ae-5edb-4139-9fa8-e0fdeff3511a)
-=======
-# wain23-mmd-regularization
 
-An initial version of the code, though the paper changed quite a lot from this version.
-Instead of the KL--MMD comparison, it is now discussing the policy regularization methods that increase the entropy.
