@@ -1,0 +1,84 @@
+random_seed: 2024
+environment_name: cifar10
+num_steps: 1.0e+6
+num_eval: 101
+
+agent_params:
+
+    'pg':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'pg_mmd_01':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .1}
+
+    'pg_mmd_02':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .2}
+
+    'pg_mmd_03':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .3}
+
+    'pg_mmd_04':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .4}
+
+    'pg_mmd_05':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .5}
+
+    'pg_mmd_06':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .6}
+
+    'pg_mmd_07':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .7}
+
+    'pg_mmd_08':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .8}
+
+    'pg_mmd_09':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .9}
+
+    'pg_mmd_10':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: 1.}
+

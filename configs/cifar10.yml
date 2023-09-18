@@ -1,0 +1,49 @@
+random_seed: 2024
+environment_name: cifar10
+num_steps: 1.0e+6
+num_eval: 101
+
+agent_params:
+
+    'pg':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'pg_ent':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .08}
+
+    'pg_mmd':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {mmd: .8}
+
+    'pg_js':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {js: .1}
+
+    'pg_hl':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {hl: .1}
+
+    'pg_tv':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {tv: .1}
+

@@ -1,0 +1,84 @@
+random_seed: 2024
+environment_name: mnist
+num_steps: 1.0e+5
+num_eval: 101
+
+agent_params:
+
+    'pg':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {}
+
+    'pg_ent_05':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .05}
+
+    'pg_ent_10':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .10}
+
+    'pg_ent_15':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .15}
+
+    'pg_ent_20':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .20}
+
+    'pg_ent_25':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .25}
+
+    'pg_ent_30':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .30}
+
+    'pg_ent_35':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .35}
+
+    'pg_ent_40':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .40}
+
+    'pg_ent_45':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .45}
+
+    'pg_ent_50':
+        loss_type: pg
+        temperature: 1.
+        batch_size: 100
+        optimizer: {name: Adam, learning_rate: 1.0e-3}
+        regularization: {ent: .50}
+
