@@ -40,6 +40,8 @@ class Visualization:
         for agent, loss in self.logs['loss'].items():
             ax.plot(self.logs['steps'], loss, linewidth=4, alpha=.8, label=agent)
         ##ax.set_title('Categorical crossentropy loss')
+        ax.set_xlabel('agent-environment interactions')
+        ax.set_ylabel('policy loss')
         if legend:
             ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         plt.savefig(f'{self.savedir}/loss.png', dpi=300, bbox_inches='tight')
@@ -51,6 +53,8 @@ class Visualization:
         for agent, acc in self.logs['accuracy'].items():
             ax.plot(self.logs['steps'], acc, linewidth=4, alpha=.8, label=agent)
         ##ax.set_title('Accuracy')
+        ax.set_xlabel('agent-environment interactions')
+        ax.set_ylabel('policy accuracy')
         if legend:
             ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         plt.savefig(f'{self.savedir}/accuracy.png', dpi=300, bbox_inches='tight')
@@ -62,6 +66,8 @@ class Visualization:
         for agent, ent in self.logs['entropy'].items():
             ax.plot(self.logs['steps'], ent, linewidth=4, alpha=.8, label=agent)
         ##ax.set_title('Policy entropy')
+        ax.set_xlabel('agent-environment interactions')
+        ax.set_ylabel('policy entropy')
         if legend:
             ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         plt.savefig(f'{self.savedir}/entropy.png', dpi=300, bbox_inches='tight')
@@ -73,6 +79,8 @@ class Visualization:
         for agent, ent in self.logs['reward'].items():
             ax.plot(self.logs['steps'], ent, linewidth=4, alpha=.8, label=agent)
         ##ax.set_title('Policy reward')
+        ax.set_xlabel('agent-environment interactions')
+        ax.set_ylabel('agent reward')
         if legend:
             ax.legend(ncol=1, loc='upper left', bbox_to_anchor=(1., 1.))
         plt.savefig(f'{self.savedir}/reward.png', dpi=300, bbox_inches='tight')
@@ -100,6 +108,8 @@ class Visualization:
             plt.xticks(np.linspace(0, len(df)-1, 11), rotation=30, ha='right')
             ax.set_ylim(0, 1)
             ##ax.set_title(f'{agent}-agent histogram')
+            ax.set_xlabel('agent-environment interactions')
+            ax.set_ylabel('action histogram')
             plt.tight_layout()
             plt.savefig(f'{self.savedir}/hist_{agent}.png', dpi=300)
             plt.show() if show else plt.close()
