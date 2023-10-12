@@ -1,6 +1,6 @@
 # Policy Entropy Regularization
 
-Source code for the numerical experiments presented in the paper "Increasing Entropy to Boost Policy Gradient Performance on Personalization Tasks".
+Source code for the numerical experiments presented in the paper "[Increasing Entropy to Boost Policy Gradient Performance on Personalization Tasks](https://arxiv.org/abs/2310.05324)".
 
 ### Setup
 1. Install requirements listed in `./requirements.txt`
